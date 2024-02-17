@@ -7,9 +7,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter @Setter
 public class Ball {
-    static final int RADIUS = 20;
-    static final int VELOCITY = 20;
+    final int RADIUS = 10;
+    final int VELOCITY = 20;
     int x;
     int y;
-
+    double angle;
 }

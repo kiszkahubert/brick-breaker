@@ -3,6 +3,8 @@ package com.kiszka;
 import javax.swing.*;
 import java.awt.*;
 
+import static com.kiszka.DrawingPanel.paddle;
+
 public class InterfaceCFG extends JFrame{
     public InterfaceCFG(){
         this.setUndecorated(true);
@@ -14,6 +16,12 @@ public class InterfaceCFG extends JFrame{
         drawingPanel.setPreferredSize(new Dimension(800,800));
         this.add(drawingPanel);
         this.pack();
+        drawingPanel.addKeyListener(paddle);
+        drawingPanel.setFocusable(true);
+        drawingPanel.requestFocusInWindow();
+        drawingPanel.run();
+        Timer timer = new Timer(5,e->drawingPanel.run());
+        timer.start();
     }
 
     public static void main(String[] args) {

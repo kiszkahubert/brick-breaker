@@ -8,18 +8,24 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import static java.lang.Math.*;
 
 public class DrawingPanel extends JPanel {
+    static final Ball ball;
+    static final Paddle paddle;
     static final Random random = new Random();
     static final int BLOCK_WIDTH = 80;
     static final int BLOCK_HEIGHT = 40;
+    static{
+        ball = new Ball(390,700,PI/4);
+        paddle = new Paddle();
+    }
 
     public DrawingPanel(){
         this.setBackground(Color.LIGHT_GRAY);
         this.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
     }
     public void run(){
-
         repaint();
     }
     @Override
@@ -32,7 +38,10 @@ public class DrawingPanel extends JPanel {
             g2d.setColor(Color.RED);
             g2d.drawRect(pkt.getX()*BLOCK_WIDTH,pkt.getY()*BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
         }
-        g2d.setColor(Color.red);
+        g2d.drawOval(ball.getX(),ball.getY(),2* ball.getRADIUS(),2* ball.getRADIUS());
+        g2d.fillOval(ball.getX(),ball.getY(),2* ball.getRADIUS(),2* ball.getRADIUS());
+        g2d.drawRect(paddle.getX_POS(),Paddle.Y_POS,Paddle.WIDTH,Paddle.HEIGHT);
+        g2d.fillRect(paddle.getX_POS(),Paddle.Y_POS,Paddle.WIDTH,Paddle.HEIGHT);
     }
     public void generate(){
         for (int i = 0; i < 100; i++) {
