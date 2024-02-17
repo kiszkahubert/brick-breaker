@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.Random;
 
 public class DrawingPanel extends JPanel {
-    private static final Random random = new Random();
-    private static final int BLOCK_WIDTH = 80;
-    private static final int BLOCK_HEIGHT = 40;
+    static final Random random = new Random();
+    static final int BLOCK_WIDTH = 80;
+    static final int BLOCK_HEIGHT = 40;
 
     public DrawingPanel(){
         this.setBackground(Color.LIGHT_GRAY);
@@ -44,9 +44,9 @@ public class DrawingPanel extends JPanel {
 }
 @Getter @Setter
 class Punkt{
-    private int x;
-    private int y;
-    protected static List<Punkt> punkty;
+    int x;
+    int y;
+    static List<Punkt> punkty;
     static{
         punkty = new ArrayList<>();
     }
