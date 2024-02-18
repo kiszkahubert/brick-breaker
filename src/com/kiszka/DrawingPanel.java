@@ -17,7 +17,7 @@ public class DrawingPanel extends JPanel {
     static final int BLOCK_WIDTH = 80;
     static final int BLOCK_HEIGHT = 40;
     static{
-        ball = new Ball(390,700,PI/4);
+        ball = new Ball(390,700,PI/2);
         paddle = new Paddle();
     }
 
@@ -26,6 +26,7 @@ public class DrawingPanel extends JPanel {
         this.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
     }
     public void run(){
+        ball.move();
         repaint();
     }
     @Override
