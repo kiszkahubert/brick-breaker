@@ -23,6 +23,7 @@ public class Ball {
 
     public void move(){
         checkWallCollision();
+        checkPaddleCollision();
         x += dx;
         y += dy;
     }
@@ -36,6 +37,12 @@ public class Ball {
         }
     }
     public void checkPaddleCollision(){
+        int paddleWidthRange = paddle.getX_POS()+80;
+        if(x>=paddle.getX_POS() && x<=paddleWidthRange && y==760){
+            dy=-dy;
+        }
+    }
+    public void checkBlockCollision(){
 
     }
 }

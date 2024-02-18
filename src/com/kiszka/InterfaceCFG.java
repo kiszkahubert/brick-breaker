@@ -20,7 +20,7 @@ public class InterfaceCFG extends JFrame{
         drawingPanel.setFocusable(true);
         drawingPanel.requestFocusInWindow();
         drawingPanel.run();
-        Timer timer = new Timer(5,e->drawingPanel.run());
+        Timer timer = new Timer(1,e->drawingPanel.run());
         timer.start();
     }
 
