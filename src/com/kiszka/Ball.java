@@ -21,19 +21,20 @@ public class Ball {
     }
     public void checkBorderCollision(){
         int halfOfRadius = RADIUS/2;
+
         if(x+halfOfRadius>=800){
             x=800-halfOfRadius;
             angle=-angle;
-        } else if (x-halfOfRadius<0){
+        } else if (x-halfOfRadius <= 0){
             x=halfOfRadius;
             angle=-angle;
         }
         if(y+halfOfRadius>=800){
             y=800-halfOfRadius;
-            angle=Math.PI - angle;
+            angle=-angle;
         } else if (y-halfOfRadius<=0){
             y=halfOfRadius;
-            angle=Math.PI-angle;
+            angle=-angle;
         }
     }
 }
