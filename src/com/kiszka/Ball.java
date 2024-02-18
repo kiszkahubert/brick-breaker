@@ -24,6 +24,7 @@ public class Ball {
     public void move(){
         checkWallCollision();
         checkPaddleCollision();
+        checkBlockCollision();
         x += dx;
         y += dy;
     }
@@ -43,6 +44,14 @@ public class Ball {
         }
     }
     public void checkBlockCollision(){
-
+        if(y<=410){
+            for (var val : Punkt.punkty){
+                int xPoint = val.getX()*80;
+                int yPoint = val.getY()*40;
+                if(x>=xPoint && x<=xPoint+80 && y>=yPoint && y<=yPoint+40){
+                    dy=-dy;
+                }
+            }
+        }
     }
 }
