@@ -17,7 +17,7 @@ public class DrawingPanel extends JPanel {
     static final int BLOCK_WIDTH = 80;
     static final int BLOCK_HEIGHT = 40;
     static{
-        ball = new Ball(390,700,PI/2);
+        ball = new Ball();
         paddle = new Paddle();
     }
 
