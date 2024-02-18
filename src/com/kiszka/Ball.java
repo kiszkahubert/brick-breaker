@@ -4,6 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Iterator;
+
+import static com.kiszka.DrawingPanel.BLOCK_HEIGHT;
+import static com.kiszka.DrawingPanel.BLOCK_WIDTH;
+
 @AllArgsConstructor
 @Getter @Setter
 public class Ball {
@@ -43,13 +48,16 @@ public class Ball {
             dy=-dy;
         }
     }
-    public void checkBlockCollision(){
-        if(y<=410){
-            for (var val : Punkt.punkty){
-                int xPoint = val.getX()*80;
-                int yPoint = val.getY()*40;
-                if(x>=xPoint && x<=xPoint+80 && y>=yPoint && y<=yPoint+40){
-                    dy=-dy;
+    public void checkBlockCollision() {
+        if (y <= 410) {
+            Iterator<Punkt> iterator = Punkt.punkty.iterator();
+            while (iterator.hasNext()) {
+                Punkt val = iterator.next();
+                int xPoint = val.getX() * BLOCK_WIDTH;
+                int yPoint = val.getY() * BLOCK_HEIGHT;
+                if (x >= xPoint && x <= xPoint + BLOCK_WIDTH && y >= yPoint && y <= yPoint + BLOCK_HEIGHT) {
+                    dy = -dy;
+                    iterator.remove();
                 }
             }
         }
